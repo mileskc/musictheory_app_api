@@ -10,7 +10,12 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1
   def show
-    render json: @quiz
+    render json: @quiz.to_json(:include => {:questions => {:include => :answers}})
+
+    # quiz_questions = @quiz.questions
+    # render json: {quiz: @quiz, questions: quiz_questions}
+
+    # render json: @quiz
   end
 
   # POST /quizzes
