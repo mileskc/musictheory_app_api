@@ -2,8 +2,8 @@ class CreateAnswers < ActiveRecord::Migration[6.0]
   def change
     create_table :answers do |t|
       t.string :content
-      t.string :is_correct
-      t.string :question_id
+      t.boolean :is_correct
+      t.integer :question_id
 
       t.timestamps
     end
