@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
-    render json: @questions
+    render json: @questions.to_json(include: :answers)
+
+    # render json: @questions
   end
 
   # GET /questions/1
